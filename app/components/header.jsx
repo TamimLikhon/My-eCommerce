@@ -1,6 +1,6 @@
 import Link from "next/link";
 import SearchComponent from "./search";
-import SignInPage from "../Signin/page";
+import CustomUserData from "@/app/components/CustomUserData"
 import UserAvatar from "./UserAvatar";
 
 export default function Header() {
@@ -37,16 +37,13 @@ export default function Header() {
           <span className="text-xl">
             <SearchComponent />
           </span>
-          <span>
-            <Link
-              href="/Signin"
-              className="text-black hover:text-gray-800 font-bold"
-            >
-              SignIn
-            </Link>
-          </span>
+
           <span className="relative">
-            <UserAvatar />
+          <UserAvatar />
+          </span>
+
+          <span className="relative">
+          <CustomUserData />
           </span>
         </div>
       </div>

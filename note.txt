@@ -3,3 +3,6 @@ https://www.youtube.com/watch?v=lOgnOTFMVl0&t=438s
 
 
 13Jan2025 - Created: signin,signup page and created formvalidation.
+
+14jan2025- User sigin cant fetch, can't redirect on provider siginin
+provider sigin page redirected - confirmed

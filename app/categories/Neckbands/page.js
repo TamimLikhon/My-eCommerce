@@ -57,7 +57,7 @@ export default function NeckbandPage() {
                             />
                         </div>
                         <h2 className="text-xl text-mm mb-2">
-                            {item.brand} {item.model} 
+                            {item.brand} {item.model}
                         </h2>
                         <p className="text-1.5rem font-bold mb-2 text-black">{item.price_bdt}</p>
                         

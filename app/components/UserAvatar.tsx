@@ -38,12 +38,8 @@ export default async function UserAvatar() {
       </div>
     );
   }else{
-    return(
-        <div>
-            //fetch data of customusers here
-        </div>
-    )
-  }
+
 
   return null;
+  }
 }

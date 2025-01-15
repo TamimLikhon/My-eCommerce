@@ -2,7 +2,7 @@ import { signIn, auth, signOut } from "@/app/auth";
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
-import SignupUser from "@/app/components/signupUser";
+import SignupForm from "@/app/components/signupUser";
 
 export default async function SignUpPage() {
   const session = await auth();
@@ -40,7 +40,7 @@ export default async function SignUpPage() {
 
 
 
-        <SignupUser />
+        <SignupForm />
 
 
     
