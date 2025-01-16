@@ -1,4 +1,5 @@
 import { signIn, auth, signOut } from "@/app/auth";
+import Image from "next/image";
 
 export default async function UserAvatar() {
   const session = await auth();
@@ -6,7 +7,7 @@ export default async function UserAvatar() {
   if (session?.user) {
     return (
       <div className="flex items-center space-x-4">
-        <img
+        <Image
           src={session.user.image || ""}
           alt={session.user.name || "User Avatar"}
           className="w-10 h-10 rounded-full border border-gray-300 cursor-pointer hover:ring-2 hover:ring-gray-400"

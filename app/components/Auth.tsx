@@ -3,6 +3,8 @@
 // import { FaGithub } from "react-icons/fa";
 // import { FaGoogle } from "react-icons/fa";
 // import LoginForm from "@/app/components/loginfrom";
+//import Image from "next/image";
+
 
 // export default async function AuthPage() {
 //   const session = await auth();
@@ -10,7 +12,7 @@
 //   if (session?.user) {
 //     return (
 //       <div className="flex flex-col items-center space-y-4">
-//         <img
+//         <Image
 //           src={session.user.image || ""}
 //           alt={session.user.name || "User Avatar"}
 //           className="w-16 h-16 rounded-full border border-gray-300"

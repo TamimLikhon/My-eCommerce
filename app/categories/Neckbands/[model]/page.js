@@ -1,6 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import Image from "next/image";
+
 export default function NeckbandDetailsPage() {
     const { model } = useParams(); 
 
@@ -38,7 +40,7 @@ export default function NeckbandDetailsPage() {
 
     return (
         <div className="container mx-auto px-4 py-8 flex flex-col items-center justify-center min-h-screen">
-        <img
+        <Image
             src={neckband.image_path}
             alt={`${neckband.brand} ${neckband.model}`}
             className="w-50 h-50 object-cover rounded-md"

@@ -32,7 +32,7 @@ export default function CustomUserData() {
     localStorage.removeItem('userEmail');
     setUserEmail('');
     setIsDropdownOpen(false);
-    router.push('/signin');
+    router.push('/');
   };
 
   const toggleDropdown = () => {

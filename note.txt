@@ -6,3 +6,6 @@ https://www.youtube.com/watch?v=lOgnOTFMVl0&t=438s
 
 14jan2025- User sigin cant fetch, can't redirect on provider siginin
 provider sigin page redirected - confirmed
+15jan2025- sigin confirmed but google and custom sigin intregation failed
+16Jan2025 - Build a Add cart option
+

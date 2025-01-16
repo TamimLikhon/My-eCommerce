@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 export default function NeckbandDetails({ neckbandData }) {
     if (!neckbandData) {
@@ -7,7 +8,7 @@ export default function NeckbandDetails({ neckbandData }) {
 
     return (
         <div className="container mx-auto px-4 py-8 flex flex-col items-center justify-center min-h-screen">
-            <img
+            <Image
                 src={neckbandData.image_path}
                 alt={`${neckbandData.brand} ${neckbandData.model}`}
                 className="w-50 h-50 object-cover rounded-md"

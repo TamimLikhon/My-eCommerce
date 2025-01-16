@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import Image from "next/image";
 export default function productDetailsPage() {
     const { model } = useParams(); 
 
@@ -37,7 +38,7 @@ export default function productDetailsPage() {
 
     return (
         <div className="container mx-auto px-4 py-8 flex flex-col items-center justify-center min-h-screen">
-        <img
+        <Image
             src={product.image_path}
             alt={`${product.brand} ${product.model}`}
             className="w-50 h-50 object-cover rounded-md"
@@ -45,43 +46,28 @@ export default function productDetailsPage() {
         <h1 className="text-3xl font-bold mt-6 mb-6">
             {product.brand} {product.model}
         </h1>
-         
-        <p className="text-lg font-bold mb-2">Price: {product.price_bdt}</p>
-        <p className="text-black">{product.charging_time}</p>
-        <p className="text-black">{product.bluetooth}</p>
-        <p className="text-black">{product.speaker_type}</p>
-        <p className="text-black">{product.calling}</p>
-        <p className="text-black">{product.microphone}</p>
-        <p className="text-black">{product.control}</p>
-        <p className="text-black">{product.talk_time}</p>
-        <p className="text-black">{product.capacity}</p>
-        <p className="text-black">{product.charging_time}</p>
-        <p className="text-black">{product.battery_capacity}</p>
-        <p className="text-black">{product.material}</p>
-        <p className="text-black">{product.weight}</p>
-        <p className="text-black">{product.cable}</p>
-        <p className="text-black">{product.sensitivity}</p>
-        <p className="text-black">{product.driver_size}</p>
-        <p className="text-black">{product.playtime}</p>
-        <p className="text-black">{product.connection_type}</p>
-        <p className="text-black">{product.working_time}</p>
-        <p className="text-black">{product.standby_time}</p>
-        <p className="text-black">{product.sound}</p>
-        <p className="text-black">{product.frequency_response}</p>
-        <p className="text-black">{product.other_features}</p>
+         <div className="mobile"> 
 
-            <p className="text-black">{product.charging_time}</p>
-            <p className="text-black">{product.bluetooth}</p>
-            <p className="text-black">{product.speaker_type}</p>
-            <p className="text-black">{product.calling}</p>
-            <p className="text-black">{product.microphone}</p>
-            <p className="text-black">{product.control}</p>
-            <p className="text-black">{product.talk_time}</p>
-            <p className="text-black">{product.capacity}</p>
-            <p className="text-black">{product.sensitivity}</p>
-            <p className="text-black">{product.driver_size}</p>
-            <p className="text-black">{product.playtime}</p>
-            <p className="text-black">{product.connection_type}</p>
+        <p className="text-lg font-bold mb-2">Price: {product.price_bdt}</p>
+        <p className="text-black text-ms font-bold">{product.network}</p>
+        <p className="text-black text-ms font-bold">{product.dimensions}</p>
+        <p className="text-black text-ms font-bold">{product.weight}</p>
+        <p className="text-black text-ms font-bold">{product.sim}</p>
+        <p className="text-black text-ms font-bold">{product.display_type}</p>
+        <p className="text-black text-ms font-bold">{product.display_size}</p>
+        <p className="text-black text-ms font-bold">{product.display_resolution}</p>
+        <p className="text-black text-ms font-bold">{product.os}</p>
+        <p className="text-black text-ms font-bold">{product.chipset}</p>
+        <p className="text-black text-ms font-bold">{product.cpu}</p>
+        <p className="text-black text-ms font-bold">{product.material}</p>
+        <p className="text-black text-ms font-bold">{product.main_camera}</p>
+        <p className="text-black text-ms font-bold">{product.selfie_camera}</p>
+        <p className="text-black text-ms font-bold">{product.sound}</p>
+        <p className="text-black text-ms font-bold">{product.battery_life}</p>
+        <p className="text-black text-ms font-bold">{product.playtime}</p>
+        <p className="text-black text-ms font-bold">{product.sensors}</p>
+        <p className="text-black text-ms font-bold">{product.description}</p>
+         </div>
     </div>
     
     );

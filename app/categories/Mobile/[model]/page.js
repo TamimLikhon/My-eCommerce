@@ -45,6 +45,7 @@ export default function ProductDetail() {
         <h1 className="text-3xl font-bold mb-6">
             {mobileData.brand} {mobileData.model}
         </h1>
+        
         <p className="text-lg font-bold mb-2">Price: {mobileData.price_bdt}</p>
         <p className="text-black text-ms font-bold">{mobileData.network}</p>
         <p className="text-black text-ms font-bold">{mobileData.dimensions}</p>

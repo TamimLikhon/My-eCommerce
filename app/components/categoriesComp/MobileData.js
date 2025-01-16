@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 
 export default function MobileDetails({ mobileData }) {
     if (!mobileData) {
@@ -7,7 +8,7 @@ export default function MobileDetails({ mobileData }) {
 
     return (
         <div className="container mx-auto px-4 py-8 flex flex-col items-center justify-center min-h-screen">
-            <img
+            <Image
                 src={mobileData.image_path}
                 alt={`${mobileData.brand} ${mobileData.model}`}
                 className="w-50 h-50 object-cover rounded-md"
