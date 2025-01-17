@@ -7,7 +7,7 @@ export default function BrandFilter({ data, onFilter }) {
             {uniqueBrands.map((brand) => (
                 <button
                     key={brand}
-                    className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+                    className="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-blue-600"
                     onClick={() => onFilter(brand)}
                 >
                     {brand}

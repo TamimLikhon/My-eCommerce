@@ -8,4 +8,22 @@ https://www.youtube.com/watch?v=lOgnOTFMVl0&t=438s
 provider sigin page redirected - confirmed
 15jan2025- sigin confirmed but google and custom sigin intregation failed
 16Jan2025 - Build a Add cart option
+17Jan2025- , add page speed incrased, checkoutpage,
+            productdeatil page css change. search css added
+
+17Jan2023- Successfully created dynamic shopping cart  
+18Jan2025- Need to fix the checkout and cart total price page.
+need to use SWR          
+
+
+compare functionality
+commenting on product
+buy now and order now
+Footer
+page transition
+
+
+
+#diff price for apple product
+
 

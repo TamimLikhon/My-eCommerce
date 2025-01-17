@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
 import SignupForm from "@/app/components/signupUser";
+import { redirect } from "next/navigation";
 
 export default async function SignUpPage() {
   const session = await auth();
@@ -19,7 +20,7 @@ export default async function SignUpPage() {
         <form
           action={async () => {
             "use server";
-            await signOut();
+            await signOut({redirectTo: "/"});
           }}
         >
           <button

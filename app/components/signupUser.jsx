@@ -26,7 +26,7 @@ export default function SignupForm() {
         throw new Error(data.message || 'Something went wrong');
       }
 
-      router.push('/Signin');
+      router.push('/');
     } catch (error) {
       setError(error.message);
     }

@@ -1,25 +1,22 @@
-"use client";
+'use client';
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
-import Image from "next/image";
 
-export default function NeckbandDetailsPage() {
-    const { model } = useParams(); 
-
-    const [neckband, setNeckband] = useState(null);
+export default function ProductDetailsPage() {
+    const { model } = useParams();
+    const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (!model) return; // Wait for the `model` parameter to be available
-
+        if (!model) return;
         async function fetchProduct() {
             try {
-                const response = await fetch(`/api/NeckbanData?model=${model}`);
+                const response = await fetch(`/api/AllData?model=${model}`);
                 if (!response.ok) {
                     throw new Error("Failed to fetch product details");
                 }
                 const data = await response.json();
-                setNeckband(data);
+                setProduct(data);
             } catch (error) {
                 console.error("Error fetching product details:", error.message);
             } finally {
@@ -31,47 +28,84 @@ export default function NeckbandDetailsPage() {
     }, [model]);
 
     if (loading) {
-        return <p>Loading...</p>;
+        return (
+            <div className="flex items-center justify-center min-h-screen">
+                <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+            </div>
+        );
     }
 
-    if (!neckband) {
-        return <p>Neckband not found.</p>;
+    if (!product) {
+        return (
+            <div className="flex items-center justify-center min-h-screen">
+                <p className="text-xl text-gray-600">Product not found.</p>
+            </div>
+        );
     }
+
+
+    const specifications = [
+        { label: "Bluetooth", value: product.bluetooth },
+        { label: "Speaker Type", value: product.speaker_type },
+        { label: "Calling Features", value: product.calling },
+        { label: "Microphone", value: product.microphone },
+        { label: "Controls", value: product.control },
+        { label: "Talk Time", value: product.talk_time },
+        { label: "Battery Capacity", value: product.battery_capacity },
+        { label: "Charging Time", value: product.charging_time },
+        { label: "Playtime", value: product.playtime },
+        { label: "Standby Time", value: product.standby_time },
+        { label: "Working Time", value: product.working_time },
+        { label: "Material", value: product.material },
+        { label: "Cable", value: product.cable },
+        { label: "Driver Size", value: product.driver_size },
+        { label: "Sensitivity", value: product.sensitivity },
+        { label: "Connection Type", value: product.connection_type },
+        { label: "Frequency Response", value: product.frequency_response },
+        { label: "Other Features", value: product.other_features }
+    ];
 
     return (
-        <div className="container mx-auto px-4 py-8 flex flex-col items-center justify-center min-h-screen">
-        <Image
-            src={neckband.image_path}
-            alt={`${neckband.brand} ${neckband.model}`}
-            className="w-50 h-50 object-cover rounded-md"
-        />
-        <h1 className="text-3xl font-bold mt-6 mb-6">
-            {neckband.brand} {neckband.model}
-        </h1>
-        <p className="text-lg font-bold mb-2">Price: {neckband.price_bdt}</p>
-        <p className="text-black">{neckband.charging_time}</p>
-        <p className="text-black">{neckband.bluetooth}</p>
-        <p className="text-black">{neckband.speaker_type}</p>
-        <p className="text-black">{neckband.calling}</p>
-        <p className="text-black">{neckband.microphone}</p>
-        <p className="text-black">{neckband.control}</p>
-        <p className="text-black">{neckband.talk_time}</p>
-        <p className="text-black">{neckband.capacity}</p>
-        <p className="text-black">{neckband.charging_time}</p>
-        <p className="text-black">{neckband.battery_capacity}</p>
-        <p className="text-black">{neckband.material}</p>
-        <p className="text-black">{neckband.weight}</p>
-        <p className="text-black">{neckband.cable}</p>
-        <p className="text-black">{neckband.sensitivity}</p>
-        <p className="text-black">{neckband.driver_size}</p>
-        <p className="text-black">{neckband.playtime}</p>
-        <p className="text-black">{neckband.connection_type}</p>
-        <p className="text-black">{neckband.working_time}</p>
-        <p className="text-black">{neckband.standby_time}</p>
-        <p className="text-black">{neckband.sound}</p>
-        <p className="text-black">{neckband.frequency_response}</p>
-        <p className="text-black">{neckband.other_features}</p>
-    </div>
-    
+        <div className="container mx-auto px-4 py-8 max-w-4xl">
+            <div className="grid md:grid-cols-2 gap-8 mb-8">
+                <div className="flex justify-center items-start">
+                    <img
+                        src={product.image_path}
+                        alt={`${product.brand} ${product.model}`}
+                        className="w-full max-w-md h-auto object-contain rounded-lg shadow-lg"
+                    />
+                </div>
+                <div>
+                    <h1 className="text-3xl font-bold mb-4">
+                        {product.brand} {product.model}
+                    </h1>
+                    {product.price_bdt && (
+                        <p className="text-2xl font-semibold text-blue-600 mb-6">
+                            Price: {product.price_bdt}
+                        </p>
+                    )}
+                </div>
+            </div>
+
+            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div className="border-b border-gray-200 px-6 py-4">
+                    <h2 className="text-xl font-semibold">Specifications</h2>
+                </div>
+                <div className="divide-y divide-gray-200">
+                    {specifications.map((spec, index) => (
+                        spec.value && (
+                            <div key={index} className="grid grid-cols-3 px-6 py-4 hover:bg-gray-50">
+                                <div className="col-span-1">
+                                    <span className="font-semibold text-black">{spec.label}</span>
+                                </div>
+                                <div className="col-span-2">
+                                    <span className="text-black font-semibold">{spec.value}</span>
+                                </div>
+                            </div>
+                        )
+                    ))}
+                </div>
+            </div>
+        </div>
     );
 }

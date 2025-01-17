@@ -1,9 +1,12 @@
 import Link from "next/link";
 import SearchComponent from "./search";
-import CustomUserData from "@/app/components/CustomUserData"
+import CustomUserData from "@/app/components/CustomUserData";
 import UserAvatar from "./UserAvatar";
+import { ShoppingCart } from 'lucide-react';
+
 
 export default function Header() {
+  
   return (
     <div className="bg-white">
       <div className="flex items-center justify-between px-6 py-4 bg-white shadow-md">
@@ -31,6 +34,7 @@ export default function Header() {
           >
             Airbuds
           </Link>
+
         </div>
 
         <div className="flex items-center space-x-4">
@@ -38,12 +42,19 @@ export default function Header() {
             <SearchComponent />
           </span>
 
+          {/* Added CartSummary here */}
+          <Link href="/cart">
+          <button className="bg-green-500 text-white px-4 py-2 rounded">
+          <ShoppingCart />
+          </button>
+        </Link>
+        
           <span className="relative">
-          <UserAvatar />
+            <UserAvatar />
           </span>
 
           <span className="relative">
-          <CustomUserData />
+            <CustomUserData />
           </span>
         </div>
       </div>
