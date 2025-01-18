@@ -5,8 +5,8 @@ import BrandFilter from "../../components/filter";
 import { CartContext } from "../../components/CartContext";
 import { SquarePlus } from 'lucide-react';
 
-export default function MobilePage() {
-  const [mobileData, setMobileData] = useState([]);
+export default function LaptopPage() {
+  const [LaptopData, setLaptopData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(true);
   const { addToCart, cartItems } = useContext(CartContext); // Access cart context
@@ -14,28 +14,28 @@ export default function MobilePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const cachedData = sessionStorage.getItem("mobileData");
+        const cachedData = sessionStorage.getItem("LaptopData");
 
         if (cachedData) {
           const parsedData = JSON.parse(cachedData);
-          setMobileData(parsedData);
+          setLaptopData(parsedData);
           setFilteredData(parsedData);
           setLoading(false);
         } else {
-          const response = await fetch("/api/MobileData");
+          const response = await fetch("/api/LaptopData");
           const data = await response.json();
 
-          sessionStorage.setItem("mobileData", JSON.stringify(data));
-          setMobileData(data);
+          sessionStorage.setItem("LaptopData", JSON.stringify(data));
+          setLaptopData(data);
           setFilteredData(data);
         }
       } catch (error) {
-        console.error("Error fetching mobile data:", error);
+        console.error("Error fetching laptop data:", error);
 
         try {
-          const response = await fetch("/api/MobileData");
+          const response = await fetch("/api/LaptopData");
           const data = await response.json();
-          setMobileData(data);
+          setLaptopData(data);
           setFilteredData(data);
         } catch (fetchError) {
           console.error("Error fetching from API:", fetchError);
@@ -50,14 +50,14 @@ export default function MobilePage() {
 
   const handleFilter = (brand) => {
     if (brand) {
-      setFilteredData(mobileData.filter((item) => item.brand === brand));
+      setFilteredData(LaptopData.filter((item) => item.brand === brand));
     } else {
-      setFilteredData(mobileData);
+      setFilteredData(LaptopData);
     }
   };
 
   const clearCache = () => {
-    sessionStorage.removeItem("mobileData");
+    sessionStorage.removeItem("LaptopData");
     window.location.reload();
   };
 
@@ -82,7 +82,7 @@ export default function MobilePage() {
         </div>
       ) : (
         <>
-          <BrandFilter data={mobileData} onFilter={handleFilter} />
+          <BrandFilter data={LaptopData} onFilter={handleFilter} />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredData.map((item) => (
               <div key={item.id} className="border rounded-lg p-4 shadow-md">
@@ -92,7 +92,7 @@ export default function MobilePage() {
                 >
                  <SquarePlus />
                 </button>
-                <Link href={`/categories/Mobile/${item.model}`} key={item.id}>
+                <Link href={`/categories/Laptop/${item.model}`} key={item.id}>
                   <div className="relative w-full h-70 mb-4">
                     <img
                       src={item.image_path}
@@ -105,14 +105,14 @@ export default function MobilePage() {
                 <p className="text-1.5rem font-bold mb-2 text-black">
                   {item.price_bdt}
                 </p>
-                <div>
+                {/* <div>
                   <p className="text-ms text-black font-bold">
                     Memory: {item.memory?.[0] || "N/A"}
                   </p>
                   <p className="text-ms text-black font-bold">
                     Display: {item.display_size || "N/A"}
                   </p>
-                </div>
+                </div> */}
  
               </div>
             ))}

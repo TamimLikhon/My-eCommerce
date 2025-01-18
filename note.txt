@@ -13,7 +13,10 @@ provider sigin page redirected - confirmed
 
 17Jan2023- Successfully created dynamic shopping cart  
 18Jan2025- Need to fix the checkout and cart total price page.
-need to use SWR          
+18Jan2025 - Fixed the cart and checoutpage its now dynamic. data stored on sessionstroage
+            added data for laptops
+
+
 
 
 compare functionality
@@ -21,6 +24,7 @@ commenting on product
 buy now and order now
 Footer
 page transition
+simillar products, top products
 
 
 
