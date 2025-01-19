@@ -15,19 +15,16 @@ provider sigin page redirected - confirmed
 18Jan2025- Need to fix the checkout and cart total price page.
 18Jan2025 - Fixed the cart and checoutpage its now dynamic. data stored on sessionstroage
             added data for laptops
+19Jan2025 - Loading animation added each page, Footer added
 
-
+20Jan2025 - add compare functionality
 
 
 compare functionality
 commenting on product
-buy now and order now
-Footer
-page transition
-simillar products, top products
-
-
-
-#diff price for apple product
+payment gateway
+Footer - needs to be more interative
+simillar products
+header mobile friendly.
 
 

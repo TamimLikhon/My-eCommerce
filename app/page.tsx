@@ -1,5 +1,7 @@
 import ImageSlider from "@/app/components/ImageSlider";
 import SecondHeader from "@/app/components/secondaryheader"
+import TopProducts from "./components/Top-products";
+import Texts from "@/app/components/HomeTexts";
 
 export default async function Home() {
  
@@ -8,7 +10,8 @@ export default async function Home() {
     <div>
       <ImageSlider />
       <SecondHeader />
-      
+      <TopProducts />
+      <Texts />
       </div>
   )
 
