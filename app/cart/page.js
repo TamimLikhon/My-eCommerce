@@ -4,7 +4,6 @@ import { CartContext } from "../components/CartContext";
 import Link from "next/link";
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
 
-// Sample data matching MongoDB structure
 const sampleCartItems = [
   {
     _id: "6777b98f818eac69c4bd82c1",
@@ -57,7 +56,7 @@ export default function CartPage() {
             Looks like you haven't added anything to your cart yet.
           </p>
           <Link
-            href="/products"
+            href="/"
             className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
           >
             Continue Shopping
@@ -95,7 +94,6 @@ export default function CartPage() {
                     <div className="flex justify-between mb-2">
                       <div>
                         <h3 className="font-semibold text-lg">{item.brand} {item.model}</h3>
-                        <p className="text-sm text-gray-600">{item.bluetooth}</p>
                       </div>
                       <button
                         onClick={() => removeItem(index)}
@@ -103,11 +101,6 @@ export default function CartPage() {
                       >
                         <Trash2 className="w-5 h-5" />
                       </button>
-                    </div>
-                    <div className="text-sm text-gray-600 mb-4">
-                      <p>Battery: {item.battery_capacity}</p>
-                      <p>Playtime: {item.playtime}</p>
-                      <p>Driver Size: {item.driver_size}</p>
                     </div>
                     <div className="flex justify-between items-center">
                       <div className="flex items-center gap-2">

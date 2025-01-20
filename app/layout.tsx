@@ -36,7 +36,7 @@ export default function RootLayout({
             <Header />
             <NavigationEvents />
             {children}
-            <Footer />
+            {/* <Footer /> */}
           </CartProvider>
         </LoadingProvider>
       </body>
