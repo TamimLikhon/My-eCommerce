@@ -3,7 +3,7 @@ import React, { useEffect, useState, useContext } from "react";
 import Link from "next/link";
 import { CartContext } from "../../components/CartContext";
 import BrandFilter from "../../components/filter";
-import { ShoppingCart, Plus, Loader2, Smartphone } from "lucide-react";
+import { ShoppingCart, Plus, Loader2, Smartphone, GitCompareArrows } from "lucide-react";
 import { useLoading } from '@/app/components/LoadingContext';
 
 export default function MobilePage() {
@@ -73,7 +73,7 @@ export default function MobilePage() {
       <div className="flex items-center gap-2">
           <Smartphone className="h-8 w-8 text-gray-700" />
           <div>
-            <h1 className="text-3xl font-bold text-gray-800">Laptops</h1>
+            <h1 className="text-3xl font-bold text-gray-800">Smart Phones</h1>
             <p className="text-gray-600 mt-1">Discover Flagship Smartphones</p>
           </div>
         </div>
@@ -128,6 +128,11 @@ export default function MobilePage() {
           </div>
         ))}
       </div>
+      <div className="fixed bottom-4 right-4 p-2 rounded-full bg-orange-400 shadow-lg cursor-pointer hover:bg-gray-100 transition-colors">
+      <Link href={`/compare`}> 
+      <GitCompareArrows className="w-10 h-10 text-gray-700" />
+      </Link>
+    </div>
     </div>
   );
 }

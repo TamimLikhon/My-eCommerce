@@ -1,11 +1,14 @@
 'use client';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext} from "react";
 import { useParams } from "next/navigation";
+import {CartContext} from "../../../components/CartContext"
+import { Plus } from "lucide-react";
 
 export default function ProductDetailsPage() {
     const { model } = useParams();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
+    const { addToCart, cartItems } = useContext(CartContext);
 
     useEffect(() => {
         if (!model) return;
@@ -42,6 +45,9 @@ export default function ProductDetailsPage() {
             </div>
         );
     }
+    const handleAddToCart = (item) => {
+        addToCart(item);
+      };    
 
     const specifications = [
         { label: "Brand", value: product.brand },
@@ -86,6 +92,12 @@ export default function ProductDetailsPage() {
                             Price: {product.price_bdt}
                         </p>
                     )}
+                <button
+                onClick={() => handleAddToCart(product)}
+                className="flex items-center justify-center gap-2 p-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-200 ease-in-out"
+                >
+                Add to Cart <Plus />
+                </button>
                 </div>
             </div>
 

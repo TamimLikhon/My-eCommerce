@@ -24,7 +24,4 @@ commenting on product
 payment gateway
 Footer - needs to be more interative
 simillar products
-header mobile friendly.
 
-
-#one last thing just sort that part only, by clicking on buy now button it will add that product to my cart and take me to my cart page.

@@ -1,12 +1,15 @@
 'use client';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useParams } from "next/navigation";
-
+import { CartContext } from "@/app/components/CartContext";
+import { Plus } from "lucide-react";
+import ProductComparison from "@/app/components/compsearch";
 export default function ProductDetailsPage() {
     const { model } = useParams();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
-
+    const { addToCart, cartItems } = useContext(CartContext);
+    
     useEffect(() => {
         if (!model) return;
         async function fetchProduct() {
@@ -42,6 +45,9 @@ export default function ProductDetailsPage() {
             </div>
         );
     }
+    const handleAddToCart = (item) => {
+        addToCart(item);
+      };
 
     const specifications = [
         { label: "Brand", value: product.brand },
@@ -94,6 +100,7 @@ export default function ProductDetailsPage() {
                         alt={`${product.brand} ${product.model}`}
                         className="w-full max-w-md h-auto object-contain rounded-lg shadow-lg"
                     />
+
                 </div>
                 <div>
                     <h1 className="text-3xl font-bold mb-4">
@@ -103,7 +110,17 @@ export default function ProductDetailsPage() {
                         <p className="text-2xl font-semibold text-blue-600 mb-6">
                             Price: {product.price_bdt}
                         </p>
+                        
                     )}
+                <button
+                onClick={() => handleAddToCart(product)}
+                className="flex items-center justify-center gap-2 p-3 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-full shadow-md hover:shadow-lg transition-all duration-200 ease-in-out"
+                >
+                Add to Cart <Plus />
+                </button>
+
+
+
                 </div>
             </div>
 
@@ -126,6 +143,7 @@ export default function ProductDetailsPage() {
                     ))}
                 </div>
             </div>
+        <ProductComparison />
         </div>
     );
 }

@@ -3,7 +3,7 @@ import React, { useEffect, useState, useContext } from "react";
 import Link from "next/link";
 import { CartContext } from "../../components/CartContext";
 import BrandFilter from "../../components/filter";
-import { ShoppingCart, Plus, Loader2, Laptop } from "lucide-react";
+import { ShoppingCart, Plus, Loader2, Laptop, GitCompareArrows } from "lucide-react";
 import { useLoading } from '@/app/components/LoadingContext';
 
 export default function LaptopPage() {
@@ -126,6 +126,11 @@ export default function LaptopPage() {
           </div>
         ))}
       </div>
+      <div className="fixed bottom-4 right-4 p-2 rounded-full bg-orange-400 shadow-lg cursor-pointer hover:bg-gray-100 transition-colors">
+      <Link href={`/compare`}> 
+      <GitCompareArrows className="w-10 h-10 text-gray-700" />
+      </Link>
+    </div>
     </div>
   );
 }
