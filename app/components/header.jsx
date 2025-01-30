@@ -14,12 +14,12 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
+    <header className="sticky top-0 z-50 bg-black  border-b border-collapse">
       <nav className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+            <span className="text-2xl font-bold bg-white bg-clip-text text-transparent">
               Thrilling Tech
             </span>
           </Link>
@@ -35,8 +35,8 @@ export default function Header() {
                 href={href} 
                 className="flex items-center space-x-1 text-gray-600 hover:text-blue-600 transition-colors text-xl font-medium"
               >
-                <Icon size={18} />
-                <span>{label}</span>
+                <Icon className="text-black shadow-sm" size={18} />
+                <span className="font-bold text-white">{label}</span>
               </Link>
             ))}
           </div>
@@ -48,9 +48,9 @@ export default function Header() {
             </div>
 
             <Link href="/cart">
-              <button className="relative p-2 text-gray-600 hover:text-blue-600 transition-colors">
-                <ShoppingCart size={20} />
-                <span className="absolute -top-1 -right-1 bg-green-600 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center">
+              <button className="relative p-2 text-white hover:text-blue-600 transition-colors">
+                <ShoppingCart size={26} />
+                <span className="absolute -top-1 -right-1 bg-blue-500 text-white text-xs font-bold rounded-full w-4 h-4 flex items-center justify-center">
                 </span>
               </button>
             </Link>

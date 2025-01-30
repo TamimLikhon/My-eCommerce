@@ -3,6 +3,7 @@ import { useEffect, useState, useContext} from "react";
 import { useParams } from "next/navigation";
 import {CartContext} from "../../../components/CartContext"
 import { Plus } from "lucide-react";
+import { RecentlyViewedList } from "../../../components/RecentlyViewed";
 
 export default function ProductDetailsPage() {
     const { model } = useParams();
@@ -120,6 +121,7 @@ export default function ProductDetailsPage() {
                     ))}
                 </div>
             </div>
+            <RecentlyViewedList />
         </div>
     );
 }

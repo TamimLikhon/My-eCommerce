@@ -18,10 +18,17 @@ provider sigin page redirected - confirmed
 19Jan2025 - Loading animation added each page, Footer added
 
 20Jan2025 - added compare functionality 
+21Jan2025 - Added lil ui, add to cart to all page
 
-
-commenting on product
 payment gateway
-Footer - needs to be more interative
-simillar products
 
+
+23Jan2025 - font changed, product resized, header color changed,
+
+
+ui/
+change colors of icons{brandfilter}
+productpage - more interacitve{simillar product} - add recently viewd option
+
+
+cart - {sessionstroage to localstorage to chceck how it reacts} - no difference

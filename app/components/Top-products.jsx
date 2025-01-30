@@ -31,26 +31,26 @@ const TopProducts = () => {
   }, [setIsLoading]);
 
 
-  return (
-    <div className="container mx-auto px-4 py-6 sm:py-8">
-        <h1 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Top Products</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-            {products.map((product) => (
-                <div key={product.id} className="border p-3 sm:p-4 rounded-lg shadow hover:shadow-lg transition-shadow">
-                    <div className="aspect-square overflow-hidden">
-                        <img
-                            src={product.image_path}
-                            alt={product.model}
-                            className="w-full h-full object-contain transform hover:scale-105 transition-transform duration-300"
-                        />
-                    </div>
-                    <h2 className="text-base sm:text-lg font-semibold mt-2">{product.model}</h2>
-                    <p className="text-gray-700 text-sm sm:text-base">{product.price_bdt} ট</p>
+  return(
+    <div className="container mx-auto px-2 py-4 sm:py-6">
+    <h1 className="text-lg sm:text-xl font-bold mb-2 sm:mb-4">Top Products</h1>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4">
+        {products.map((product) => (
+            <div key={product.id} className="border p-2 sm:p-3 rounded-lg shadow hover:shadow-lg transition-shadow">
+                <div className="flex justify-center items-center bg-transparent rounded-xl p-4">
+                    <img
+                        src={product.image_path}
+                        alt={`${product.brand} ${product.model}`}
+                        className="w-full h-32 object-contain hover:scale-105 transition-transform duration-300"
+                    />
                 </div>
-            ))}
-        </div>
+                <h2 className="text-sm sm:text-base font-semibold mt-1">{product.model}</h2>
+                <p className="text-gray-700 text-xs sm:text-sm">{product.price_bdt} ট</p>
+            </div>
+        ))}
     </div>
-);
+</div>
+  )
 }
 
 export default TopProducts;

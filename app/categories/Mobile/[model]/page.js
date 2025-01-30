@@ -74,20 +74,20 @@ export default function ProductDetailsPage() {
     return (
         <div className="container mx-auto px-4 py-8 max-w-4xl">
             <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div className="flex justify-center items-start">
-                    <img
-                        src={product.image_path}
-                        alt={`${product.brand} ${product.model}`}
-                        className="w-full max-w-md h-auto object-contain rounded-lg shadow-lg"
-                    />
-                </div>
+                        <div className="flex justify-center items-center bg-transparent rounded-xl p-8">
+                <img
+                    src={product.image_path}
+                    alt={`${product.brand} ${product.model}`}
+                    className="w-full max-w-md h-auto object-contain hover:scale-105 transition-transform duration-300"
+                />
+            </div>
                 <div>
                     <h1 className="text-3xl font-bold mb-4">
                         {product.brand} {product.model}
                     </h1>
                     {product.price_bdt && (
-                        <p className="text-2xl font-semibold text-blue-600 mb-6">
-                            Price: {product.price_bdt}
+                        <p className="text-xl font-semibold text-blue-600 mb-6">
+                            Price: {product.price_bdt} BDT
                         </p>
                     )}
                                 <button

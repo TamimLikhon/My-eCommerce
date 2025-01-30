@@ -18,7 +18,7 @@ export default function NeckbandPage() {
       setIsLoading(true);
 
       try {
-        const cachedData = sessionStorage.getItem("neckbandData");
+        const cachedData = localStorage.getItem("neckbandData");
         if (cachedData) {
           const parsedData = JSON.parse(cachedData);
           setBandData(parsedData);
@@ -29,7 +29,7 @@ export default function NeckbandPage() {
 
         const response = await fetch("/api/NeckbanData");
         const data = await response.json();
-        sessionStorage.setItem("neckbandData", JSON.stringify(data));
+        localStorage.setItem("neckbandData", JSON.stringify(data));
         setBandData(data);
         setFilteredData(data);
       } catch (error) {
@@ -68,18 +68,19 @@ export default function NeckbandPage() {
     );
   }
 
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-8">
-        <div className="flex items-center gap-2">
-          <Headphones className="h-8 w-8 text-gray-700" />
+  return(
+    <div className="bg-gray-50 min-h-screen font-sans">
+    <div className="container mx-auto px-4 py-6 max-w-5xl">
+      <div className="flex justify-between items-center mb-6 pb-4 border-b border-gray-200">
+        <div className="flex items-center space-x-3">
+          <Headphones className="h-10 w-10 text-blue-600" />
           <div>
-            <h1 className="text-3xl font-bold text-gray-800">Neckbands</h1>
-            <p className="text-gray-600 mt-1">Discover premium wireless audio comfort</p>
+            <h1 className="text-3xl font-bold text-gray-900">Neckbands</h1>
+            <p className="text-sm text-gray-500">Premium Wireless Audio</p>
           </div>
         </div>
         <Link href="/cart">
-          <button className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg transition-colors">
+          <button className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-colors">
             <ShoppingCart className="h-5 w-5" />
             <span>Cart ({cartItems.length})</span>
           </button>
@@ -88,40 +89,43 @@ export default function NeckbandPage() {
 
       <BrandFilter data={neckbandData} onFilter={handleFilter} />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6">
         {filteredData.map((item) => (
-          <div key={item.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+          <div 
+            key={item.id} 
+            className="bg-white rounded-lg shadow-md overflow-hidden transition-all hover:shadow-lg"
+          >
             <div className="relative">
               <Link href={`/categories/Neckbands/${item.model}`}>
-                <div className="aspect-w-3 aspect-h-4">
+                <div className="h-48 bg-transparent flex items-center justify-center">
                   <img
                     src={item.image_path}
                     alt={`${item.brand} ${item.model}`}
-                    className="w-full h-64 object-contain transform hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-contain p-4 transform hover:scale-105 transition-transform"
                   />
                 </div>
               </Link>
               <button
                 onClick={() => handleAddToCart(item)}
-                className="absolute top-4 right-4 p-2 bg-green-600 hover:bg-green-700 text-white rounded-full shadow-md transition-colors"
+                className="absolute top-2 right-2 p-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full shadow-md"
               >
-                <Plus className="h-5 w-5" />
+                <Plus className="h-4 w-4" />
               </button>
             </div>
             
-            <div className="p-4">
-              <h2 className="text-xl font-semibold text-gray-800 mb-2">
+            <div className="p-3 text-center">
+              <h2 className="text-base font-semibold text-gray-800 mb-1">
                 {item.brand} {item.model}
               </h2>
-              <p className="text-2xl font-bold text-green-600 mb-3">
+              <p className="text-xl font-bold text-blue-600 mb-2">
                 {item.price_bdt}
               </p>
               
               {item.features && (
-                <div className="mt-2 space-y-1">
+                <div className="text-xs text-gray-600 space-y-1 mb-2">
                   {item.features.slice(0, 2).map((feature, index) => (
-                    <p key={index} className="text-gray-600 text-sm">
-                      • {feature}
+                    <p key={index} className="truncate">
+                      {feature}
                     </p>
                   ))}
                 </div>
@@ -130,12 +134,16 @@ export default function NeckbandPage() {
           </div>
         ))}
       </div>
-      <div className="fixed bottom-4 right-4 p-2 rounded-full bg-orange-400 shadow-lg cursor-pointer hover:bg-gray-100 transition-colors">
-      <Link href={`/compare`}> 
-      <GitCompareArrows className="w-10 h-10 text-gray-700" />
-      </Link>
+
+      <div className="fixed bottom-6 right-6 z-50">
+        <Link href="/compare">
+          <div className="bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition-all hover:scale-110">
+            <GitCompareArrows className="w-6 h-6" />
+          </div>
+        </Link>
+      </div>
     </div>
-    </div>
-  );
+  </div>
+  )
 }
 
