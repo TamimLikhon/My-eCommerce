@@ -3,6 +3,7 @@ import { signIn, auth, signOut } from "@/app/auth";
 import Link from "next/link";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import SignupForm from "@/app/components/signupUser";
+import Image from "next/image";
 
 export default async function SignUpPage() {
   const session = await auth();
@@ -13,10 +14,11 @@ export default async function SignUpPage() {
         <div className="w-full max-w-sm bg-white rounded-lg shadow-md p-6">
           <div className="flex flex-col items-center">
             <div className="relative mb-4">
-              <img
+              <Image
                 src={session.user.image || "/api/placeholder/64/64"}
                 alt={session.user.name || "User Avatar"}
-                className="w-16 h-16 rounded-full border-2 border-white shadow"
+                width={16} height={16}
+                className="rounded-full border-2 border-white shadow"
               />
               <div className="absolute bottom-0 right-0 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
             </div>

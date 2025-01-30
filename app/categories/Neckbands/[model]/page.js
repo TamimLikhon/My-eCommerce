@@ -3,11 +3,13 @@ import { useEffect, useState, useContext } from "react";
 import { useParams } from "next/navigation";
 import {CartContext} from "../../../components/CartContext"
 import { Plus } from "lucide-react";
+import Image from "next/image";
+
 export default function ProductDetailsPage() {
     const { model } = useParams();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
-    const { addToCart, cartItems } = useContext(CartContext);
+    const { addToCart} = useContext(CartContext);
 
     useEffect(() => {
         if (!model) return;
@@ -74,11 +76,16 @@ export default function ProductDetailsPage() {
         <div className="container mx-auto px-4 py-8 max-w-4xl">
             <div className="grid md:grid-cols-2 gap-8 mb-8">
                 <div className="flex justify-center items-start">
-                    <img
-                        src={product.image_path}
-                        alt={`${product.brand} ${product.model}`}
-                        className="w-full max-w-md h-auto object-contain rounded-lg shadow-lg"
-                    />
+                <Image
+                    src={product.image_path}
+                    alt={`${product.brand} ${product.model}`}
+                    width={200}
+                    height={100}
+    
+                    className="w-full h-full object-contain p-4 transform hover:scale-105 transition-transform"
+                  />
+
+
                 </div>
                 <div>
                     <h1 className="text-3xl font-bold mb-4">

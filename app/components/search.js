@@ -76,7 +76,7 @@ const SearchComponent = () => {
             </div>
           ) : (
             <div className="px-4 py-3 text-sm text-gray-500">
-              No results found for "{searchQuery}"
+              No results found
             </div>
           )}
         </div>

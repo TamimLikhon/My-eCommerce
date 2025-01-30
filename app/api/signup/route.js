@@ -36,7 +36,7 @@ export async function POST(request) {
       { message: 'User created', userId: result.insertedId },
       { status: 201 }
     );
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { message: 'Server error' },
       { status: 500 }

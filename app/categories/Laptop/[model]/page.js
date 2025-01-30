@@ -4,12 +4,13 @@ import { useParams } from "next/navigation";
 import {CartContext} from "../../../components/CartContext"
 import { Plus } from "lucide-react";
 import { RecentlyViewedList } from "../../../components/RecentlyViewed";
+import Image from "next/image";
 
 export default function ProductDetailsPage() {
     const { model } = useParams();
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
-    const { addToCart, cartItems } = useContext(CartContext);
+    const { addToCart} = useContext(CartContext);
 
     useEffect(() => {
         if (!model) return;
@@ -78,8 +79,10 @@ export default function ProductDetailsPage() {
         <div className="container mx-auto px-4 py-8 max-w-4xl">
             <div className="grid md:grid-cols-2 gap-8 mb-8">
                 <div className="flex justify-center items-start">
-                    <img
+                    <Image
                         src={product.image_path}
+                        width={200}
+                        height={100}
                         alt={`${product.brand} ${product.model}`}
                         className="w-full max-w-md h-auto object-contain rounded-lg shadow-lg"
                     />

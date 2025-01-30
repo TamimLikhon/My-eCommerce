@@ -5,7 +5,7 @@ import { CartContext } from "../../components/CartContext";
 import BrandFilter from "../../components/filter";
 import { ShoppingCart, Plus, Loader2, Laptop, GitCompareArrows } from "lucide-react";
 import { useLoading } from '@/app/components/LoadingContext';
-import { RecentlyViewedList } from "@/app/components/RecentlyViewed";
+import Image from "next/image";
 
 export default function LaptopPage() {
   const [LaptopData, setLaptopData] = useState([]);
@@ -97,8 +97,10 @@ export default function LaptopPage() {
               <div className="relative">
                 <Link href={`/categories/Laptop/${item.model}`}>
                   <div className="h-48 bg-transparent flex items-center justify-center">
-                    <img
+                    <Image
                       src={item.image_path}
+                      width={200}
+                      height={100}
                       alt={`${item.brand} ${item.model}`}
                       className="w-full h-full object-contain p-4 transform hover:scale-105 transition-transform"
                     />

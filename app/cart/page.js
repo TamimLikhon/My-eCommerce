@@ -3,6 +3,7 @@ import React, { useContext, useMemo } from "react";
 import { CartContext } from "../components/CartContext";
 import Link from "next/link";
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
+import Image from "next/image";
 
 const sampleCartItems = [
   {
@@ -53,7 +54,7 @@ export default function CartPage() {
           </div>
           <h2 className="text-2xl font-semibold mb-4">Your cart is empty</h2>
           <p className="text-gray-600 mb-8">
-            Looks like you haven't added anything to your cart yet.
+            Looks like you have not added anything to your cart yet.
           </p>
           <Link
             href="/"
@@ -84,10 +85,11 @@ export default function CartPage() {
                   className="p-6 border-b last:border-b-0 flex flex-col sm:flex-row gap-6"
                 >
                   <div className="flex-shrink-0">
-                    <img
+                    <Image
                       src={item.image_path}
                       alt={item.model}
-                      className="w-20 h-20 object-cover rounded-lg"
+                                      width={60} height={60}
+                      className="object-cover rounded-lg"
                     />
                   </div>
                   <div className="flex-grow">

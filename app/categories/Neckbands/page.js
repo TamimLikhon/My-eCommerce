@@ -5,6 +5,7 @@ import { CartContext } from "../../components/CartContext";
 import BrandFilter from "../../components/filter";
 import { ShoppingCart, Plus, Loader2, Headphones, GitCompareArrows } from "lucide-react";
 import { useLoading } from '@/app/components/LoadingContext';
+import Image from "next/image";
 
 export default function NeckbandPage() {
   const [neckbandData, setBandData] = useState([]);
@@ -98,11 +99,15 @@ export default function NeckbandPage() {
             <div className="relative">
               <Link href={`/categories/Neckbands/${item.model}`}>
                 <div className="h-48 bg-transparent flex items-center justify-center">
-                  <img
+                <Image
                     src={item.image_path}
                     alt={`${item.brand} ${item.model}`}
+                    width={200}
+                    height={100}
                     className="w-full h-full object-contain p-4 transform hover:scale-105 transition-transform"
                   />
+
+
                 </div>
               </Link>
               <button
